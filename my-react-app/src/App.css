@@ -36,3 +36,14 @@
     transform: rotate(360deg);
   }
 }
+
+/* テスト用のカウンターコンポーネントのCSSあ */
+.isClose {
+  display: none;
+}
+
+.isOpen {
+  display: block;
+}
+
+/* ここまで！！！ */
