@@ -1,7 +1,7 @@
 # camp2024_07
 
 API サーバー立ち上げ
-/camp2024_07 で
+`cd camp2024_07/api` で
 `uvicorn main:app --reload`
 
 React サーバー立ち上げ
