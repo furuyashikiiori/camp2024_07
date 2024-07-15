@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import TodoList from './components/TodoList';
 import AddTodo from './components/AddTodo';
 import CategoryFilter from './components/CategoryFilter';
+import Header from './components/Header';
+import Footer from './components/Footer';
 
 const App = () => {
   const [todos, setTodos] = useState([]);
@@ -31,7 +33,8 @@ const App = () => {
 
   return (
     <div className="app">
-      <h1>Todo List</h1>
+      {/* <h1>Todo List</h1> */}
+      <Header />
       <CategoryFilter setCategory={setCategory} />
       <AddTodo addTodo={addTodo} />
       <TodoList
@@ -40,6 +43,7 @@ const App = () => {
         deleteTodo={deleteTodo}
         editTodo={editTodo}
       />
+      <Footer />
     </div>
   );
 };
