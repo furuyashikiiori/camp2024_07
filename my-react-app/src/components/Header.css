@@ -7,3 +7,25 @@
     left: 0; /* 左端に寄せる */
     right: 0; /* 右端に寄せる */
   }
+
+  nav ul {
+    margin: 0;
+    padding: 0;
+  }
+  
+  nav ul li {
+    list-style: none;
+    display: inline-block;
+    margin-right: 30px;
+  }
+  
+  nav ul li a {
+    font-size: 19px;
+    text-decoration: none;
+    color: white;
+    transition: all 0.2s;
+  }
+  
+  nav ul li a:hover {
+    color: #003142;
+  }
