@@ -4,6 +4,7 @@ import MyComponent from "./components/MyComponent";
 import "./App.css";
 import Counter from "./components/Counter";
 import Home from "./components/Home";
+import TodoApp from "./TodoApp";
 
 function App() {
   return (
@@ -19,11 +20,14 @@ function App() {
         <Link to="/counter">Counter</Link>
         <br />
         <Link to="/">MyComponent</Link>
+        <br />
+        <Link to="/todo">Todo</Link>
 
         {/* <Route>タグでパスに応じたコンポーネントを表示 */}
         <Routes>
           <Route path="/home" element={<Home />} />
           <Route path="/counter" element={<Counter />} />
+          <Route path="/todo" element={<TodoApp />} />
         </Routes>
       </div>
     </Router>
