@@ -5,13 +5,15 @@ import "./App.css";
 import Counter from "./components/Counter";
 import Home from "./components/Home";
 import TodoApp from "./TodoApp";
+import Header from './components/Header';
+import Footer from './components/Footer';
 
 function App() {
   return (
     <Router>
       <div className="App">
         <header className="App-header">
-          <MyComponent />
+          <Header />
         </header>
 
         {/* <Link>タグで画面遷移のリンクを作成 */}
@@ -29,6 +31,7 @@ function App() {
           <Route path="/counter" element={<Counter />} />
           <Route path="/todo" element={<TodoApp />} />
         </Routes>
+        <Footer />
       </div>
     </Router>
   );
