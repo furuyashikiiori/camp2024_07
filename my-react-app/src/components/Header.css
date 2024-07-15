@@ -1,0 +1,9 @@
+.header {
+    background-color: lightblue;
+    padding: 10px;
+    text-align: left;
+    width: 100%; /* 幅を100%に設定 */
+    position: relative; /* 相対位置に設定 */
+    left: 0; /* 左端に寄せる */
+    right: 0; /* 右端に寄せる */
+  }
