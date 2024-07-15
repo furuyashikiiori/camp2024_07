@@ -16,15 +16,6 @@ function App() {
           <Header />
         </header>
 
-        {/* <Link>タグで画面遷移のリンクを作成 */}
-        <Link to="/home">Home</Link>
-        <br />
-        <Link to="/counter">Counter</Link>
-        <br />
-        <Link to="/">MyComponent</Link>
-        <br />
-        <Link to="/todo">Todo</Link>
-
         {/* <Route>タグでパスに応じたコンポーネントを表示 */}
         <Routes>
           <Route path="/home" element={<Home />} />
