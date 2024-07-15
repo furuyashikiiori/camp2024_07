@@ -18,11 +18,7 @@ h1 {
   text-align: center;
 }
 
-.add-todo-form {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
+
 
 .add-todo-form input,
 .add-todo-form button {
@@ -71,12 +67,4 @@ h1 {
   display: flex;
   justify-content: center;
   margin-bottom: 20px;
-}
-
-.category-filter button {
-  padding: 10px;
-  margin: 0 5px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  cursor: pointer;
 }
