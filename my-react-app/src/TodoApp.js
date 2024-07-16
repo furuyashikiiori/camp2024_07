@@ -6,7 +6,7 @@ import AddTodo from './components/AddTodo';
 import CategoryFilter from './components/CategoryFilter';
 // import Header from './components/Header';
 // import Footer from './components/Footer';
-// import Calendar from './components/Calendar';
+import Calendar from './components/Calendar';
 import './App.css';
 
 const TodoApp = () => {
@@ -65,7 +65,7 @@ const TodoApp = () => {
               </>
             }
           />
-          {/* <Route path="/calendar" element={<Calendar todos={todos} />} /> */}
+          {<Route path="/calendar" element={<Calendar todos={todos} />} />}
         </Routes>
       </div>
     </Router>
