@@ -1,0 +1,28 @@
+.calendar {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .day {
+    width: calc(100% / 7);
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+    padding: 10px;
+    position: relative;
+    cursor: pointer;
+  }
+  
+  .day.light-blue {
+    background-color: lightblue;
+  }
+  
+  .day.blue {
+    background-color: blue;
+    color: white;
+  }
+  
+  .day.dark-blue {
+    background-color: darkblue;
+    color: white;
+  }
+  
