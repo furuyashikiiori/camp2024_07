@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import axios from 'axios';
 import TodoList from './components/TodoList';
 import AddTodo from './components/AddTodo';
 import CategoryFilter from './components/CategoryFilter';
@@ -8,9 +9,21 @@ import CategoryFilter from './components/CategoryFilter';
 // import Calendar from './components/Calendar';
 import './App.css';
 
-const App = () => {
+const TodoApp = () => {
   const [todos, setTodos] = useState([]);
   const [category, setCategory] = useState('All');
+
+  //ToDoのデータを取得
+  useEffect(() => {
+    axios.get('http://localhost:8000/todos')
+      .then(response => {
+        setTodos(response.data);
+      })
+      .catch(error => {
+        console.error('There was an error!', error);
+      });
+  }, []);
+
 
   const addTodo = (task) => {
     setTodos([...todos, task]);
@@ -59,4 +72,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default TodoApp;
