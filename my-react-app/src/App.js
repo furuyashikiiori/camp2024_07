@@ -1,12 +1,11 @@
 import React from "react";
-import { BrowserRouter as Router, Link, Route, Routes } from "react-router-dom";
-import MyComponent from "./components/MyComponent";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import "./App.css";
 import Counter from "./components/Counter";
 import Home from "./components/Home";
 import TodoApp from "./TodoApp";
-import Header from './components/Header';
-import Footer from './components/Footer';
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 function App() {
   return (
