@@ -21,6 +21,4 @@ app.add_middleware(
 def read_data():
     return {"message": "Hello from FastAPI!"}
 
-
-app = FastAPI()
 app.include_router(todo.router)
