@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from routers import todo
 
 app = FastAPI()
 
@@ -19,3 +20,7 @@ app.add_middleware(
 @app.get("/api/data")
 def read_data():
     return {"message": "Hello from FastAPI!"}
+
+
+app = FastAPI()
+app.include_router(todo.router)
