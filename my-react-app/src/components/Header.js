@@ -13,6 +13,7 @@ const Header = () => {
             <li><Link to="/counter">Counter</Link></li>
             <li><Link to="/">MyComponent</Link></li>
             <li><Link to="/todo">Todo</Link></li>
+            <li><Link to="/calendar">Calendar</Link></li>
         </ul>
     </nav>
     </header>
