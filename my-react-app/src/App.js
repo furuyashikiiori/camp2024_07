@@ -23,7 +23,7 @@ function App() {
           <Route path="/counter" element={<Counter />} />
           <Route path="/todo" element={<TodoApp />} />
           <Route path="/calendar" element={<Calendar />} />
-          <Route path="/" element={<MyComponent />} />
+          <Route path="/mycomponent" element={<MyComponent />} />
         </Routes>
         <Footer />
       </div>
