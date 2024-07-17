@@ -37,7 +37,7 @@ function App() {
           <Route path="/home" element={<Home />} />
           <Route path="/counter" element={<Counter />} />
           <Route path="/todo" element={<TodoApp />} />
-          <Route path="/calendar" element={<Calendar todos={todos} />} />
+          <Route path="/calendar" element={<Calendar todos={todos}/>} />
           <Route path="/mycomponent" element={<MyComponent />} />
         </Routes>
         <Footer />
