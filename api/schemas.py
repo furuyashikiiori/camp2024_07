@@ -1,7 +1,7 @@
+from datetime import date, datetime
 from enum import Enum
 from typing import Optional
-from pydantic import BaseModel, Field, validator
-from datetime import date
+from pydantic import BaseModel, Field, ConfigDict
 
 
 class ToDoStatus(Enum):
@@ -19,29 +19,23 @@ class ToDoCreate(BaseModel):
     name: str = Field(min_length=2, max_length=50, examples=["課題をやる"])
     category: ToDoCategory = Field(examples=[ToDoCategory.SCHOOL])
     status: ToDoStatus = Field(examples=[ToDoStatus.TASK_PENDING])
-    due_date: Optional[date] = Field(default=None, examples=["2024/07/14"])
-
-    @validator('due_date')
-    def validate_due_date(cls, value):
-        if value is None:
-            return value
-        try:
-            date.fromisoformat(value)
-        except ValueError:
-            raise ValueError("due_date must be in the format YYYY/MM/DD")
-        return value
+    due_date: Optional[date] = Field(default=None, examples=["2024-07-14"])
 
 
 class ToDoUpdate(BaseModel):
-    name: Optional[str] = Field(default=None, min_length=2, max_length=20, examples=["買い物する"])
+    name: Optional[str] = Field(default=None, min_length=2, max_length=50, examples=["買い物する"])
     category: Optional[ToDoCategory] = Field(default=None, examples=[ToDoCategory.HOUSEHOLD])
     status: Optional[ToDoStatus] = Field(default=None, examples=[ToDoStatus.TASK_COMPLETED])
-    due_date: Optional[date] = Field(default=None, examples=["2024/07/14"])
+    due_date: Optional[date] = Field(default=None, examples=["2024-07-14"])
 
 
 class ToDoResponse(BaseModel):
     id: int = Field(gt=0, examples=[1])
-    name: str = Field(min_length=2, max_length=20, examples=["課題をやる"])
+    name: str = Field(min_length=2, max_length=50, examples=["課題をやる"])
     category: ToDoCategory = Field(examples=[ToDoCategory.SCHOOL])
     status: ToDoStatus = Field(examples=[ToDoStatus.TASK_PENDING])
-    due_date: Optional[date] = Field(default=None, examples=["2024/07/14"])
+    due_date: Optional[date] = Field(default=None, examples=["2024-07-14"])
+    created_at: datetime
+    updated_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
