@@ -27,3 +27,16 @@ pgAdminサイト（データベースを可視化できるサイト）への移�
 - パスワード : password
 - 言語 : Japanese を選択
 
+
+#### 仮想環境に追加したもの
+ORMの追加（今回はSQLAlchemyを採用）
+- `pip install sqlalchemy`
+DBマイグレーションの追加（安全にデータベースのテーブルの中身を変更できる設定をするやつ）
+- `pip install alembic psycopg2-binary`
+
+#### alembicの初期設定コマンド -> これはmitsukiがやったからいらないかも
+- `cd api`
+- `alembic init migrations`
+- `alembic revision --autogenerate -m "Create todos table"`
+- `alembic upgrade head`
+
