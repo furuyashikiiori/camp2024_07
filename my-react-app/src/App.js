@@ -19,6 +19,7 @@ function App() {
 
         {/* <Route>タグでパスに応じたコンポーネントを表示 */}
         <Routes>
+          <Route path="/" element={<TodoApp />} />
           <Route path="/home" element={<Home />} />
           <Route path="/counter" element={<Counter />} />
           <Route path="/todo" element={<TodoApp />} />
