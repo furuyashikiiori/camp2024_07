@@ -6,6 +6,8 @@ import Home from "./components/Home";
 import TodoApp from "./TodoApp";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import Calendar from "./components/Calendar";
+import MyComponent from "./components/MyComponent";
 
 function App() {
   return (
@@ -20,6 +22,8 @@ function App() {
           <Route path="/home" element={<Home />} />
           <Route path="/counter" element={<Counter />} />
           <Route path="/todo" element={<TodoApp />} />
+          <Route path="/calendar" element={<Calendar />} />
+          <Route path="/" element={<MyComponent />} />
         </Routes>
         <Footer />
       </div>
