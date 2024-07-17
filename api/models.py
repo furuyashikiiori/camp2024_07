@@ -12,4 +12,4 @@ class Todo(Base):
     status = Column(Enum(ToDoStatus), nullable=False, default=ToDoStatus.TASK_PENDING)
     due_date = Column(Date, nullable=True)
     created_at = Column(DateTime, default=datetime.now())
-    updated_at = Column(DateTime, default=datetime.now(), onupdate=datetime.now())    
+    updated_at = Column(DateTime, default=datetime.now(), onupdate=datetime.now())
