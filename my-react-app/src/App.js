@@ -24,6 +24,26 @@ function App() {
       });
   }, []);
 
+  const addTodo = (task) => {
+    setTodos([...todos, task]);
+  };
+
+  const toggleComplete = (id) => {
+    setTodos(
+      todos.map((todo) =>
+        todo.id === id ? { ...todo, completed: !todo.completed } : todo
+      )
+    );
+  };
+
+  const deleteTodo = (id) => {
+    setTodos(todos.filter((todo) => todo.id !== id));
+  };
+
+  const editTodo = (id, updatedTask) => {
+    setTodos(todos.map((todo) => (todo.id === id ? updatedTask : todo)));
+  };
+
   return (
     <Router>
       <div className="App">
@@ -36,7 +56,7 @@ function App() {
           <Route path="/" element={<TodoApp />} />
           <Route path="/home" element={<Home />} />
           <Route path="/counter" element={<Counter />} />
-          <Route path="/todo" element={<TodoApp />} />
+          <Route path="/todo" element={<TodoApp todos={todos} setTodos={setTodos} addTodo={addTodo} toggleComplete={toggleComplete} deleteTodo={deleteTodo} editTodo={editTodo} />} />
           <Route path="/calendar" element={<Calendar todos={todos}/>} />
           <Route path="/mycomponent" element={<MyComponent />} />
         </Routes>
