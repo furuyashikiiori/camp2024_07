@@ -9,8 +9,8 @@ import CategoryFilter from './components/CategoryFilter';
 // import Calendar from './components/Calendar';
 import './App.css';
 
-const TodoApp = () => {
-  const [todos, setTodos] = useState([]);
+const TodoApp = ({ todos, setTodos, addTodo, toggleComplete, deleteTodo, editTodo }) => {
+  // const [todos, setTodos] = useState([]);
   const [category, setCategory] = useState('All');
 
   //ToDoのデータを取得
@@ -22,28 +22,28 @@ const TodoApp = () => {
       .catch(error => {
         console.error('There was an error!', error);
       });
-  }, []);
+  }, [setTodos]);
 
 
-  const addTodo = (task) => {
-    setTodos([...todos, task]);
-  };
+  // const addTodo = (task) => {
+  //   setTodos([...todos, task]);
+  // };
 
-  const toggleComplete = (id) => {
-    setTodos(
-      todos.map((todo) =>
-        todo.id === id ? { ...todo, completed: !todo.completed } : todo
-      )
-    );
-  };
+  // const toggleComplete = (id) => {
+  //   setTodos(
+  //     todos.map((todo) =>
+  //       todo.id === id ? { ...todo, completed: !todo.completed } : todo
+  //     )
+  //   );
+  // };
 
-  const deleteTodo = (id) => {
-    setTodos(todos.filter((todo) => todo.id !== id));
-  };
+  // const deleteTodo = (id) => {
+  //   setTodos(todos.filter((todo) => todo.id !== id));
+  // };
 
-  const editTodo = (id, updatedTask) => {
-    setTodos(todos.map((todo) => (todo.id === id ? updatedTask : todo)));
-  };
+  // const editTodo = (id, updatedTask) => {
+  //   setTodos(todos.map((todo) => (todo.id === id ? updatedTask : todo)));
+  // };
 
   const filteredTodos = category === 'All' ? todos : todos.filter((todo) => todo.category === category);
 
