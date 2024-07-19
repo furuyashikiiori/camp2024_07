@@ -1,9 +1,9 @@
-import React from 'react';
-import TodoItem from './TodoItem';
+import React from "react";
+import TodoItem from "./TodoItem";
 
-const TodoList = ({ todos, toggleComplete, deleteTodo, editTodo }) => {
-  const incompleteTodos = todos.filter(todo => !todo.completed);
-  const completeTodos = todos.filter(todo => todo.completed);
+const TodoList = ({ todos = [], toggleComplete, deleteTodo, editTodo }) => {
+  const incompleteTodos = todos.filter((todo) => !todo.completed);
+  const completeTodos = todos.filter((todo) => todo.completed);
 
   return (
     <div className="todo-list">
