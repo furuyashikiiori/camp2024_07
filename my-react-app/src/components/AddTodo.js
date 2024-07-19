@@ -9,12 +9,12 @@ const AddTodo = ({ addTodo }) => {
     e.preventDefault();
     if (!task || !deadline || !category) return;
     const newTask = {
-      id: Date.now(),
-      task,
-      deadline,
-      category,
-      completed: false,
+      name: task,
+      category: category.toUpperCase(),  // カテゴリを大文字に変換
+      status: 'タスク未完了',
+      due_date: deadline // Ensure this is in 'YYYY-MM-DD' format
     };
+    console.log(newTask);  // 送信前にデータをコンソールに表示して確認
     addTodo(newTask);
     setTask('');
     setDeadline('');

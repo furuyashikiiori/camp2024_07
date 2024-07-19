@@ -1,8 +1,14 @@
+import logging
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from routers import todo
+from database import engine, Base
+
+Base.metadata.create_all(bind=engine)  # データベーススキーマを作成
 
 app = FastAPI()
+
+logging.basicConfig(level=logging.DEBUG)
 
 # CORS設定
 origins = [
@@ -17,8 +23,5 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-@app.get("/api/data")
-def read_data():
-    return {"message": "Hello from FastAPI!"}
-
 app.include_router(todo.router)
+
