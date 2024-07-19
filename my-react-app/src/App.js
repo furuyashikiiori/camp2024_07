@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import axios from 'axios';
+import axios from "axios";
 import "./App.css";
 import Counter from "./components/Counter";
 import Home from "./components/Home";
@@ -15,12 +15,13 @@ function App() {
   const [todos, setTodos] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:8000/todos')
-      .then(response => {
+    axios
+      .get("http://localhost:8000/todos")
+      .then((response) => {
         setTodos(response.data);
       })
-      .catch(error => {
-        console.error('There was an error!', error);
+      .catch((error) => {
+        console.error("There was an error!", error);
       });
   }, []);
 
@@ -53,11 +54,23 @@ function App() {
 
         {/* <Route>タグでパスに応じたコンポーネントを表示 */}
         <Routes>
-          <Route path="/" element={<TodoApp />} />
+          <Route path="/" element={<Home />} />
           <Route path="/home" element={<Home />} />
           <Route path="/counter" element={<Counter />} />
-          <Route path="/todo" element={<TodoApp todos={todos} setTodos={setTodos} addTodo={addTodo} toggleComplete={toggleComplete} deleteTodo={deleteTodo} editTodo={editTodo} />} />
-          <Route path="/calendar" element={<Calendar todos={todos}/>} />
+          <Route
+            path="/todo"
+            element={
+              <TodoApp
+                todos={todos}
+                setTodos={setTodos}
+                addTodo={addTodo}
+                toggleComplete={toggleComplete}
+                deleteTodo={deleteTodo}
+                editTodo={editTodo}
+              />
+            }
+          />
+          <Route path="/calendar" element={<Calendar todos={todos} />} />
           <Route path="/mycomponent" element={<MyComponent />} />
         </Routes>
         <Footer />
