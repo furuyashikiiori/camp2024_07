@@ -17,8 +17,9 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+#テスト用のAPI
 @app.get("/api/data")
 def read_data():
-    return {"message": "Hello from FastAPI!"}
+    return {"message": "Hello from FastAPI!!!"}
 
 app.include_router(todo.router)
