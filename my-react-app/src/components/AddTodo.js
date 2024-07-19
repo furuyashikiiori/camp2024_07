@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 const AddTodo = ({ addTodo }) => {
-  const [task, setTask] = useState('');
-  const [deadline, setDeadline] = useState('');
-  const [category, setCategory] = useState('');
+  const [task, setTask] = useState("");
+  const [deadline, setDeadline] = useState("");
+  const [category, setCategory] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -16,9 +16,9 @@ const AddTodo = ({ addTodo }) => {
       completed: false,
     };
     addTodo(newTask);
-    setTask('');
-    setDeadline('');
-    setCategory('');
+    setTask("");
+    setDeadline("");
+    setCategory("");
   };
 
   return (
@@ -34,12 +34,19 @@ const AddTodo = ({ addTodo }) => {
         value={deadline}
         onChange={(e) => setDeadline(e.target.value)}
       />
-      <input
+      <select value={category} onChange={(e) => setCategory(e.target.value)}>
+        <option value="Work">Work</option>
+        <option value="Personal">Personal</option>
+        <option value="Shopping">Shopping</option>
+        <option value="Others">Others</option>
+      </select>
+
+      {/* <input
         type="text"
         placeholder="Category"
         value={category}
         onChange={(e) => setCategory(e.target.value)}
-      />
+      /> */}
       <button type="submit">Add Task</button>
     </form>
   );

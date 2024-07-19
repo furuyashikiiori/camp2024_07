@@ -1,29 +1,36 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 // import {} from 'react-router-dom';
-import axios from 'axios';
-import TodoList from './components/TodoList';
-import AddTodo from './components/AddTodo';
-import CategoryFilter from './components/CategoryFilter';
+import axios from "axios";
+import TodoList from "./components/TodoList";
+import AddTodo from "./components/AddTodo";
+import CategoryFilter from "./components/CategoryFilter";
 // import Header from './components/Header';
 // import Footer from './components/Footer';
 // import Calendar from './components/Calendar';
-import './App.css';
+import "./App.css";
 
-const TodoApp = ({ todos, setTodos, addTodo, toggleComplete, deleteTodo, editTodo }) => {
+const TodoApp = ({
+  todos,
+  setTodos,
+  addTodo,
+  toggleComplete,
+  deleteTodo,
+  editTodo,
+}) => {
   // const [todos, setTodos] = useState([]);
-  const [category, setCategory] = useState('All');
+  const [category, setCategory] = useState("All");
 
   //ToDoのデータを取得
   useEffect(() => {
-    axios.get('http://localhost:8000/todos')
-      .then(response => {
+    axios
+      .get("http://localhost:8000/todos")
+      .then((response) => {
         setTodos(response.data);
       })
-      .catch(error => {
-        console.error('There was an error!', error);
+      .catch((error) => {
+        console.error("There was an error!", error);
       });
   }, [setTodos]);
-
 
   // const addTodo = (task) => {
   //   setTodos([...todos, task]);
@@ -45,20 +52,24 @@ const TodoApp = ({ todos, setTodos, addTodo, toggleComplete, deleteTodo, editTod
   //   setTodos(todos.map((todo) => (todo.id === id ? updatedTask : todo)));
   // };
 
-  const filteredTodos = category === 'All' ? todos : todos.filter((todo) => todo.category === category);
+  const filteredTodos =
+    category === "All"
+      ? todos
+      : todos.filter((todo) => todo.category === category);
 
   return (
-      <div className="app">
-        <CategoryFilter setCategory={setCategory} />
-        <AddTodo addTodo={addTodo} />
-        <TodoList
-          todos={filteredTodos}
-          toggleComplete={toggleComplete}
-          deleteTodo={deleteTodo}
-          editTodo={editTodo}
-         />
-          {/* <Route path="/calendar" element={<Calendar todos={todos} />} /> */}
-      </div>
+    <div className="app">
+      <AddTodo addTodo={addTodo} />
+      <CategoryFilter setCategory={setCategory} />
+
+      <TodoList
+        todos={filteredTodos}
+        toggleComplete={toggleComplete}
+        deleteTodo={deleteTodo}
+        editTodo={editTodo}
+      />
+      {/* <Route path="/calendar" element={<Calendar todos={todos} />} /> */}
+    </div>
   );
 };
 
