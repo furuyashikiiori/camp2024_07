@@ -1,5 +1,23 @@
 *venv
-__pycache__/
 docker/
 migrations/
+# PyCharm specific cache files
+.idea/
+
+# Exclude PyCharm project settings files
+.idea/*.iml
+.idea/*.iws
+.idea/workspace.xml
+.idea/misc.xml
+.idea/modules.xml
+.idea/dictionaries
+.idea/vcs.xml
+.idea/caches/
+.idea/libraries/
+.idea/runConfigurations/
+.idea/inspectionProfiles/
+.idea/codeStyles/
+
+# Exclude Python-related cache files
 *.pyc
+__pycache__/
