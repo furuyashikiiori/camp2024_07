@@ -1,24 +1,32 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
 const AddTodo = ({ addTodo }) => {
-  const [task, setTask] = useState("");
-  const [deadline, setDeadline] = useState("");
-  const [category, setCategory] = useState("");
+  const [task, setTask] = useState('');
+  const [deadline, setDeadline] = useState('');
+  const [category, setCategory] = useState('');
+
+  // 選択肢のリストを定義
+  const categories = [
+    { value: '仕事', label: '仕事' },
+    { value: '家事', label: '家事' },
+    { value: '買い物', label: '買い物' },
+    { value: 'その他', label: 'その他' }
+  ];
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!task || !deadline || !category) return;
     const newTask = {
-      id: Date.now(),
-      task,
-      deadline,
-      category,
-      completed: false,
+      name: task,
+      category: category,  // カテゴリをそのまま設定
+      status: 'タスク未完了',  // ステータスをそのまま設定
+      due_date: deadline  // Ensure this is in 'YYYY-MM-DD' format
     };
+    console.log(newTask);  // 送信前にデータをコンソールに表示して確認
     addTodo(newTask);
-    setTask("");
-    setDeadline("");
-    setCategory("");
+    setTask('');
+    setDeadline('');
+    setCategory('');
   };
 
   return (
@@ -35,18 +43,11 @@ const AddTodo = ({ addTodo }) => {
         onChange={(e) => setDeadline(e.target.value)}
       />
       <select value={category} onChange={(e) => setCategory(e.target.value)}>
-        <option value="Work">Work</option>
-        <option value="Personal">Personal</option>
-        <option value="Shopping">Shopping</option>
-        <option value="Others">Others</option>
+        <option value="">Select Category</option>  {/* デフォルトの空の選択肢 */}
+        {categories.map(cat => (
+          <option key={cat.value} value={cat.value}>{cat.label}</option>
+        ))}
       </select>
-
-      {/* <input
-        type="text"
-        placeholder="Category"
-        value={category}
-        onChange={(e) => setCategory(e.target.value)}
-      /> */}
       <button type="submit">Add Task</button>
     </form>
   );
