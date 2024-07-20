@@ -10,15 +10,6 @@ const Header = () => {
         <ul>
           {/* <Link>タグで画面遷移のリンクを作成 */}
           <li>
-            <Link to="/home">Home</Link>
-          </li>
-          <li>
-            <Link to="/counter">Counter</Link>
-          </li>
-          <li>
-            <Link to="/mycomponent">MyComponent</Link>
-          </li>
-          <li>
             <Link to="/todo">Todo</Link>
           </li>
           <li>
