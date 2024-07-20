@@ -21,3 +21,5 @@ migrations/
 # Exclude Python-related cache files
 *.pyc
 __pycache__/
+
+*.db
