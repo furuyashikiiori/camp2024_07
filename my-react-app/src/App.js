@@ -1,17 +1,16 @@
-import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Route, Routes, useLocation } from "react-router-dom";
+import React from "react";
+import { useState, useEffect } from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import axios from "axios";
 import "./App.css";
-import Login from "./components/Login";
 import TodoApp from "./TodoApp";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Calendar from "./components/Calendar";
 import GrowUP from "./components/GrowUP";
 
-const AppContent = () => {
+function App() {
   const [todos, setTodos] = useState([]);
-  const location = useLocation();
 
   useEffect(() => {
     axios
@@ -44,48 +43,38 @@ const AppContent = () => {
     setTodos(todos.map((todo) => (todo.id === id ? updatedTask : todo)));
   };
 
-
-  const isLoginPage = location.pathname === "/";
   // const taskCount = todos.filter(todo => todo.states === "タスク完了").length;
   const taskCount = todos.filter((todo) => todo.status === "タスク完了").length;
 
   return (
-    <div className="App">
-      {!isLoginPage && (
+    <Router>
+      <div className="App">
         <header className="App-header">
           <Header />
         </header>
-      )}
 
-      <Routes>
-        <Route path="/" element={<Login />} />
-        <Route
-          path="/todo"
-          element={
-            <TodoApp
-              todos={todos}
-              setTodos={setTodos}
-              addTodo={addTodo}
-              toggleComplete={toggleComplete}
-              deleteTodo={deleteTodo}
-              editTodo={editTodo}
-            />
-          }
-        />
-        <Route path="/calendar" element={<Calendar todos={todos} />} />
-        <Route path="/growup" element={<GrowUP taskCount={taskCount} />} />
-      </Routes>
-
-      {!isLoginPage && <Footer />}
-    </div>
-
+        {/* <Route>タグでパスに応じたコンポーネントを表示 */}
+        <Routes>
+          <Route
+            path="/todo"
+            element={
+              <TodoApp
+                todos={todos}
+                setTodos={setTodos}
+                addTodo={addTodo}
+                toggleComplete={toggleComplete}
+                deleteTodo={deleteTodo}
+                editTodo={editTodo}
+              />
+            }
+          />
+          <Route path="/calendar" element={<Calendar todos={todos} />} />
+          <Route path="/growup" element={<GrowUP taskCount={taskCount} />} />
+        </Routes>
+        <Footer />
+      </div>
+    </Router>
   );
-};
-
-const App = () => (
-  <Router>
-    <AppContent />
-  </Router>
-);
+}
 
 export default App;
