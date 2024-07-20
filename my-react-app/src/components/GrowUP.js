@@ -1,5 +1,6 @@
 import React from "react";
 import "./GrowUP.css";
+import backgroundImage from '../img/image-2.png';
 import egg_gif from "../gif/egg.gif";
 import corn_gif from "../gif/corn.gif";
 import stay_gif from "../gif/stay.gif";
@@ -32,7 +33,8 @@ const GrowUP = ({ taskCount }) => {
         <h2>タスク完了数 : {taskCount}</h2>
       </div>
       <div className="gif-container">
-        <img src={getGifSrc()} alt="Unicorn" />
+        <img src={backgroundImage} alt="Background" className="background-image" />
+        <img src={getGifSrc()} alt="Unicorn" className="foreground-image" />
       </div>
       <div className="tweet-button"></div>
       <a
