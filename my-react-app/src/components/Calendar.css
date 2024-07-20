@@ -40,3 +40,7 @@
   margin: 20px auto;
   margin-left: 40%;
 }
+
+.Reload_button:hover {
+  background-color: rgb(98, 162, 235);
+}
