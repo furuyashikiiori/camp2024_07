@@ -13,6 +13,7 @@ logging.basicConfig(level=logging.DEBUG)
 # CORS設定
 origins = [
     "http://localhost:3000",
+    "http://localhost:3000/todo",
 ]
 
 app.add_middleware(
