@@ -8,10 +8,10 @@ class ToDoStatus(str, Enum):
     TASK_COMPLETED = "タスク完了"
 
 class ToDoCategory(str, Enum): 
-    Work = "仕事"
-    Personal = '家事'
-    Shopping = '買い物'
-    Others = 'その他'
+    Work = "Work"
+    Personal = 'Personal'
+    Shopping = 'Shopping'
+    Others = 'Others'
 
 class ToDoCreate(BaseModel):
     name: str = Field(min_length=2, max_length=50, examples=["課題をやる"])
