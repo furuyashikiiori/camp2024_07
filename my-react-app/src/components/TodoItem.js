@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 const TodoItem = ({ todo, toggleComplete, deleteTodo, editTodo }) => {
   const [isEditing, setIsEditing] = useState(false);
@@ -10,7 +10,7 @@ const TodoItem = ({ todo, toggleComplete, deleteTodo, editTodo }) => {
   };
 
   return (
-    <div className={`todo-item ${todo.completed ? 'completed' : 'incomplete'}`}>
+    <div className={`todo-item ${todo.completed ? "completed" : "incomplete"}`}>
       <input
         type="checkbox"
         checked={todo.completed}
@@ -23,9 +23,9 @@ const TodoItem = ({ todo, toggleComplete, deleteTodo, editTodo }) => {
           onChange={(e) => setNewTask(e.target.value)}
         />
       ) : (
-        <span>{todo.task}</span>
+        <span>{todo.name}</span>
       )}
-      <span>{todo.deadline}</span>
+      <span>{todo.due_date}</span>
       <span>{todo.category}</span>
       {isEditing ? (
         <button onClick={handleEdit}>Save</button>
