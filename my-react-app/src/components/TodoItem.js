@@ -10,10 +10,14 @@ const TodoItem = ({ todo, toggleComplete, deleteTodo, editTodo }) => {
   };
 
   return (
-    <div className={`todo-item ${todo.completed ? "completed" : "incomplete"}`}>
+    <div
+      className={`todo-item ${
+        todo.status === "タスク完了" ? "completed" : "incomplete"
+      }`}
+    >
       <input
         type="checkbox"
-        checked={todo.completed}
+        checked={todo.status === "タスク完了"}
         onChange={() => toggleComplete(todo.id)}
       />
       {isEditing ? (
