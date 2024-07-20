@@ -2,8 +2,10 @@ import React from "react";
 import TodoItem from "./TodoItem";
 
 const TodoList = ({ todos, toggleComplete, deleteTodo, editTodo }) => {
-  const incompleteTodos = todos.filter((todo) => !todo.completed);
-  const completeTodos = todos.filter((todo) => todo.completed);
+  const incompleteTodos = todos.filter(
+    (todo) => todo.status === "タスク未完了"
+  );
+  const completeTodos = todos.filter((todo) => todo.status === "タスク完了");
 
   return (
     <div className="todo-list">
