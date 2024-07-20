@@ -1,16 +1,17 @@
-import React from "react";
-import { useState, useEffect } from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { BrowserRouter as Router, Route, Routes, useLocation } from "react-router-dom";
 import axios from "axios";
 import "./App.css";
+import Login from "./components/Login";
 import TodoApp from "./TodoApp";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Calendar from "./components/Calendar";
 import GrowUP from "./components/GrowUP";
 
-function App() {
+const AppContent = () => {
   const [todos, setTodos] = useState([]);
+  const location = useLocation();
 
   useEffect(() => {
     axios
@@ -43,35 +44,44 @@ function App() {
     setTodos(todos.map((todo) => (todo.id === id ? updatedTask : todo)));
   };
 
+  const isLoginPage = location.pathname === "/";
+
   return (
-    <Router>
-      <div className="App">
+    <div className="App">
+      {!isLoginPage && (
         <header className="App-header">
           <Header />
         </header>
+      )}
 
-        {/* <Route>タグでパスに応じたコンポーネントを表示 */}
-        <Routes>
-          <Route
-            path="/todo"
-            element={
-              <TodoApp
-                todos={todos}
-                setTodos={setTodos}
-                addTodo={addTodo}
-                toggleComplete={toggleComplete}
-                deleteTodo={deleteTodo}
-                editTodo={editTodo}
-              />
-            }
-          />
-          <Route path="/calendar" element={<Calendar todos={todos} />} />
-          <Route path="/growup" element={<GrowUP />} />
-        </Routes>
-        <Footer />
-      </div>
-    </Router>
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route
+          path="/todo"
+          element={
+            <TodoApp
+              todos={todos}
+              setTodos={setTodos}
+              addTodo={addTodo}
+              toggleComplete={toggleComplete}
+              deleteTodo={deleteTodo}
+              editTodo={editTodo}
+            />
+          }
+        />
+        <Route path="/calendar" element={<Calendar todos={todos} />} />
+        <Route path="/growup" element={<GrowUP />} />
+      </Routes>
+
+      {!isLoginPage && <Footer />}
+    </div>
   );
-}
+};
+
+const App = () => (
+  <Router>
+    <AppContent />
+  </Router>
+);
 
 export default App;
