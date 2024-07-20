@@ -3,14 +3,11 @@ import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import axios from "axios";
 import "./App.css";
-import Counter from "./components/Counter";
-import Home from "./components/Home";
 import TodoApp from "./TodoApp";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Calendar from "./components/Calendar";
-import GrowUP from './components/GrowUP';
-import MyComponent from "./components/MyComponent";
+import GrowUP from "./components/GrowUP";
 
 function App() {
   const [todos, setTodos] = useState([]);
@@ -55,9 +52,6 @@ function App() {
 
         {/* <Route>タグでパスに応じたコンポーネントを表示 */}
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/home" element={<Home />} />
-          <Route path="/counter" element={<Counter />} />
           <Route
             path="/todo"
             element={
@@ -73,7 +67,6 @@ function App() {
           />
           <Route path="/calendar" element={<Calendar todos={todos} />} />
           <Route path="/growup" element={<GrowUP />} />
-          <Route path="/mycomponent" element={<MyComponent />} />
         </Routes>
         <Footer />
       </div>
