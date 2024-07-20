@@ -40,3 +40,6 @@ DBマイグレーションの追加（安全にデータベースのテーブル
 - `alembic revision --autogenerate -m "Create todos table"`
 - `alembic upgrade head`
 
+#### firebaseのインストール
+`npm install firebase`
+`npm i react-firebase-hooks`
