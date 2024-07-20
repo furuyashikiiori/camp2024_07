@@ -9,6 +9,7 @@ import TodoApp from "./TodoApp";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Calendar from "./components/Calendar";
+import GrowUP from './components/GrowUP';
 import MyComponent from "./components/MyComponent";
 
 function App() {
@@ -71,6 +72,7 @@ function App() {
             }
           />
           <Route path="/calendar" element={<Calendar todos={todos} />} />
+          <Route path="/growup" element={<GrowUP />} />
           <Route path="/mycomponent" element={<MyComponent />} />
         </Routes>
         <Footer />

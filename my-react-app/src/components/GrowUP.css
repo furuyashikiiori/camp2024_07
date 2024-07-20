@@ -1,0 +1,12 @@
+.growup-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+  
+  .gif-container img {
+    width: 200px; /* gifのサイズを調整 */
+    height: auto;
+  }
+  

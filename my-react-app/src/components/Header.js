@@ -24,6 +24,9 @@ const Header = () => {
           <li>
             <Link to="/calendar">Calendar</Link>
           </li>
+          <li>
+            <Link to="/growup">GrowUP</Link>
+          </li>
         </ul>
       </nav>
     </header>
