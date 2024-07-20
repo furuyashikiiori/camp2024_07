@@ -1,11 +1,9 @@
 import React from 'react';
 import './Login.css';
+import Home from './Home';
 import loginBackground from '../img/login-background.jpg'; // 画像パスを修正
 
 const Login = () => {
-  const handleGoogleLogin = () => {
-    // Googleログイン処理
-  };
 
   return (
     <div className="login-container">
@@ -14,8 +12,8 @@ const Login = () => {
           <img src={loginBackground} alt="Login Background" />
         </div>
         <div className="login-right">
-          <h2>ログイン</h2>
-          <button onClick={handleGoogleLogin}>Googleでログイン</button>
+            <h2>ログイン</h2>
+            <Home />
         </div>
       </div>
     </div>
