@@ -1,0 +1,22 @@
+.growup-container {
+    text-align: center;
+    margin: 20px;
+  }
+  
+  .growup-status {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .growup-gif img {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .growup-info {
+    margin-left: 20px;
+    text-align: left;
+  }
+  
