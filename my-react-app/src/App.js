@@ -69,7 +69,6 @@ function App() {
           />
           <Route path="/calendar" element={<Calendar todos={todos} />} />
           <Route path="/growup" element={<GrowUP taskCount={taskCount} />} />
-          <Route path="/mycomponent" element={<MyComponent />} />
         </Routes>
         <Footer />
       </div>
