@@ -43,7 +43,8 @@ function App() {
     setTodos(todos.map((todo) => (todo.id === id ? updatedTask : todo)));
   };
 
-  const taskCount = todos.filter(todo => todo.completed).length;
+  // const taskCount = todos.filter(todo => todo.states === "タスク完了").length;
+  const taskCount = todos.filter((todo) => todo.status === "タスク完了").length;
 
   return (
     <Router>
