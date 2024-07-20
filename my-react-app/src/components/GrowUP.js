@@ -36,7 +36,7 @@ const GrowUP = ({ taskCount }) => {
       </div>
       <div className="tweet-button"></div>
       <a
-        href={`https://twitter.com/intent/tweet?text=タスクを合計で${taskCount}個達成したよ！！%20%23タスク管理%20%23ゆにこっちの部屋`}
+        href={`https://twitter.com/intent/tweet?text=UniTASK　Achievements　タスクを合計で${taskCount}個達成したよ！！%20%23タスク管理%20%23ゆにこっちの部屋`}
         target="_blank"
         rel="noopener noreferrer"
         className="twitter-share-button"
