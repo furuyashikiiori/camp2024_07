@@ -46,7 +46,18 @@ const Calendar = ({ todos }) => {
     return days;
   };
 
-  return <div className="calendar">{renderDays()}</div>;
+  return (
+    <div>
+      <div className="calendar">{renderDays()}</div>
+
+      <button
+        className="Reload_button"
+        onClick={() => window.location.reload()}
+      >
+        Reload
+      </button>
+    </div>
+  );
 };
 
 export default Calendar;
