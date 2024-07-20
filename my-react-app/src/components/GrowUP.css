@@ -23,6 +23,20 @@
   display: block;
 }
 
+.background-image {
+    width: 400px;
+    height: auto;
+  }
+  
+  .foreground-image {
+    position: absolute;
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%);
+    width: 200px; /* 必要に応じてサイズを調整 */
+    height: auto;
+  }
+
 .twitter-share-button {
   background-color: rgb(94, 158, 232);
   color: white;
