@@ -43,6 +43,8 @@ function App() {
     setTodos(todos.map((todo) => (todo.id === id ? updatedTask : todo)));
   };
 
+  const taskCount = todos.filter(todo => todo.completed).length;
+
   return (
     <Router>
       <div className="App">
@@ -66,7 +68,8 @@ function App() {
             }
           />
           <Route path="/calendar" element={<Calendar todos={todos} />} />
-          <Route path="/growup" element={<GrowUP />} />
+          <Route path="/growup" element={<GrowUP taskCount={taskCount} />} />
+          <Route path="/mycomponent" element={<MyComponent />} />
         </Routes>
         <Footer />
       </div>
