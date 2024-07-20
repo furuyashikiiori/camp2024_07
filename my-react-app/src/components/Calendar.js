@@ -48,7 +48,14 @@ const Calendar = ({ todos }) => {
 
   return (
     <div>
-      <div className="calendar">{renderDays()}</div>
+      <div className="calendar">
+        {renderDays()}
+        <p className="calender-less">Less</p>
+        <div class="rectangle1"></div>
+        <div class="rectangle2"></div>
+        <div class="rectangle3"></div>
+        <p className="calender-more">More</p>
+      </div>
 
       <button
         className="Reload_button"
