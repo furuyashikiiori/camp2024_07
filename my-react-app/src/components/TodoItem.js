@@ -2,10 +2,10 @@ import React, { useState } from "react";
 
 const TodoItem = ({ todo, toggleComplete, deleteTodo, editTodo }) => {
   const [isEditing, setIsEditing] = useState(false);
-  const [newTask, setNewTask] = useState(todo.task);
+  const [newTask, setNewTask] = useState({ name: todo.name, due_date: todo.due_date, category: todo.category });
 
   const handleEdit = () => {
-    editTodo(todo.id, { ...todo, task: newTask });
+    editTodo(todo.id, { ...todo, ...newTask });
     setIsEditing(false);
   };
 
@@ -21,20 +21,36 @@ const TodoItem = ({ todo, toggleComplete, deleteTodo, editTodo }) => {
         onChange={() => toggleComplete(todo.id)}
       />
       {isEditing ? (
-        <input
-          type="text"
-          value={newTask}
-          onChange={(e) => setNewTask(e.target.value)}
-        />
+        <>
+          <input
+            type="text"
+            value={newTask.name}
+            onChange={(e) => setNewTask({ ...newTask, name: e.target.value })}
+          />
+          <input
+            type="date"
+            value={new Date(newTask.due_date).toISOString().split('T')[0]}
+            onChange={(e) => setNewTask({ ...newTask, due_date: e.target.value })}
+          />
+          <select
+            value={newTask.category}
+            onChange={(e) => setNewTask({ ...newTask, category: e.target.value })}
+          >
+            <option value="Work">Work</option>
+            <option value="Personal">Personal</option>
+            <option value="Shopping">Shopping</option>
+            <option value="Others">Others</option>
+          </select>
+          <button onClick={handleEdit}>Save</button>
+          <button onClick={() => setIsEditing(false)}>Cancel</button>
+        </>
       ) : (
-        <span>{todo.name}</span>
-      )}
-      <span>{todo.due_date}</span>
-      <span>{todo.category}</span>
-      {isEditing ? (
-        <button onClick={handleEdit}>Save</button>
-      ) : (
-        <button onClick={() => setIsEditing(true)}>Edit</button>
+        <>
+          <span>{todo.name}</span>
+          <span>{todo.due_date}</span>
+          <span>{todo.category}</span>
+          <button onClick={() => setIsEditing(true)}>Edit</button>
+        </>
       )}
       <button onClick={() => deleteTodo(todo.id)}>Delete</button>
     </div>
