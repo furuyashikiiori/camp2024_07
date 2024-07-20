@@ -73,7 +73,7 @@ const AppContent = () => {
           }
         />
         <Route path="/calendar" element={<Calendar todos={todos} />} />
-        <Route path="/growup" element={<GrowUP />} />
+        <Route path="/growup" element={<GrowUP taskCount={taskCount} />} />
       </Routes>
 
       {!isLoginPage && <Footer />}
