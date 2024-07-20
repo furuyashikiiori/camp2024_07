@@ -1,16 +1,36 @@
 import React from 'react';
 import './GrowUP.css';
 import egg_gif from '../gif/egg.gif';
+import stay_gif from '../gif/stay.gif';
+import walk_gif from '../gif/walk.gif';
+import sleep_gif from '../gif/sleep.gif';
+import jump_gif from '../gif/jump.gif';
+import eat_gif from '../gif/eat.gif';
+import ball_gif from '../gif/ball.gif';
+import glasses_gif from '../gif/glasses.gif';
 
-const GrowUP = () => {
+
+const GrowUP = ({ taskCount }) => {
+    const getGifSrc = () => {
+      if (taskCount >= 70) return glasses_gif;
+      if (taskCount >= 60) return ball_gif;
+      if (taskCount >= 50) return eat_gif;
+      if (taskCount >= 40) return jump_gif;
+      if (taskCount >= 30) return sleep_gif;
+      if (taskCount >= 20) return walk_gif;
+      if (taskCount >= 10) return stay_gif;
+      return egg_gif;
+    };
+
   return (
     <div className="growup-container">
+      <h1 className="title">ゆにこっちの部屋</h1>
       <div className="gif-container">
-        {/* gif画像の表示 */}
-        <img src= {egg_gif} alt="ユニコッち" />
+        <img src={getGifSrc()} alt="Unicorn" />
       </div>
     </div>
   );
 };
 
 export default GrowUP;
+

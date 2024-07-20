@@ -1,12 +1,25 @@
 .growup-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    text-align: center;
     padding: 20px;
   }
   
-  .gif-container img {
-    width: 200px; /* gifのサイズを調整 */
-    height: auto;
+  .title {
+    text-align: left;
+    margin-left: 20px;
   }
   
+  .gif-container {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    border: 2px solid #ddd;
+    margin: 20px auto;
+    width: fit-content;
+  }
+  
+  .gif-container img {
+    width: 500px;
+    height: auto;
+    display: block;
+  }
+       
