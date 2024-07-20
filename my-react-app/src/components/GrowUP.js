@@ -1,6 +1,7 @@
 import React from 'react';
 import './GrowUP.css';
 import egg_gif from '../gif/egg.gif';
+import corn_gif from '../gif/corn.gif';
 import stay_gif from '../gif/stay.gif';
 import walk_gif from '../gif/walk.gif';
 import sleep_gif from '../gif/sleep.gif';
@@ -19,6 +20,7 @@ const GrowUP = ({ taskCount }) => {
       if (taskCount >= 60) return sleep_gif;
       if (taskCount >= 30) return walk_gif;
       if (taskCount >= 10) return stay_gif;
+      if (taskCount >= 5) return corn_gif;
       return egg_gif;
     };
 
