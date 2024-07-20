@@ -12,15 +12,17 @@ import glasses_gif from '../gif/glasses.gif';
 
 const GrowUP = ({ taskCount }) => {
     const getGifSrc = () => {
-      if (taskCount >= 70) return glasses_gif;
-      if (taskCount >= 60) return ball_gif;
-      if (taskCount >= 50) return eat_gif;
-      if (taskCount >= 40) return jump_gif;
-      if (taskCount >= 30) return sleep_gif;
-      if (taskCount >= 20) return walk_gif;
+      if (taskCount >= 280) return glasses_gif;
+      if (taskCount >= 210) return ball_gif;
+      if (taskCount >= 150) return eat_gif;
+      if (taskCount >= 100) return jump_gif;
+      if (taskCount >= 60) return sleep_gif;
+      if (taskCount >= 30) return walk_gif;
       if (taskCount >= 10) return stay_gif;
       return egg_gif;
     };
+
+    console.log(taskCount);
 
   return (
     <div className="growup-container">
