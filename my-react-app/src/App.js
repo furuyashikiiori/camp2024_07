@@ -44,7 +44,10 @@ const AppContent = () => {
     setTodos(todos.map((todo) => (todo.id === id ? updatedTask : todo)));
   };
 
+
   const isLoginPage = location.pathname === "/";
+  // const taskCount = todos.filter(todo => todo.states === "タスク完了").length;
+  const taskCount = todos.filter((todo) => todo.status === "タスク完了").length;
 
   return (
     <div className="App">
@@ -75,6 +78,7 @@ const AppContent = () => {
 
       {!isLoginPage && <Footer />}
     </div>
+
   );
 };
 
