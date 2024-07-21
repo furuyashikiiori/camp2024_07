@@ -1,31 +1,44 @@
 .header {
-    background-color: lightblue;
-    padding: 10px;
-    text-align: left;
-    width: 100%; /* 幅を100%に設定 */
-    position: relative; /* 相対位置に設定 */
-    left: 0; /* 左端に寄せる */
-    right: 0; /* 右端に寄せる */
-  }
+  background-color: lightblue;
+  padding: 10px;
+  text-align: left;
+  width: 100%; /* 幅を100%に設定 */
+  position: relative; /* 相対位置に設定 */
+  left: 0; /* 左端に寄せる */
+  right: 0; /* 右端に寄せる */
+}
 
-  nav ul {
-    margin: 0;
-    padding: 0;
-  }
-  
-  nav ul li {
-    list-style: none;
-    display: inline-block;
-    margin-right: 30px;
-  }
-  
-  nav ul li a {
-    font-size: 19px;
-    text-decoration: none;
-    color: white;
-    transition: all 0.2s;
-  }
-  
-  nav ul li a:hover {
-    color: #003142;
-  }
+nav ul {
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  list-style: none;
+  display: inline-block;
+  margin-right: 30px;
+}
+
+nav ul li a {
+  font-size: 19px;
+  text-decoration: none;
+  color: white;
+  transition: all 0.2s;
+}
+
+nav ul li a:hover {
+  color: #003142;
+}
+
+.anton-regular {
+  font-family: "Anton", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+h1 {
+  font-family: Anton;
+  color: rgb(8, 46, 111);
+  -webkit-text-stroke-width: 0.1px;
+  -webkit-text-stroke-color: rgb(126, 165, 192);
+}
