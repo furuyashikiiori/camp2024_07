@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const Header = () => {
   return (
     <header className="header">
-      <h1>Todo List</h1>
+      <h1>UniTASK Achievements</h1>
       <nav>
         <ul>
           {/* <Link>タグで画面遷移のリンクを作成 */}
