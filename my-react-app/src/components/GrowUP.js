@@ -12,6 +12,9 @@ import glasses_gif from "../gif/glasses.gif";
 import image1 from '../img/image-1.png';
 import image2 from '../img/image-2.png';
 import image3 from '../img/image-3.png';
+import image4 from '../img/image-4.png';
+import image5 from '../img/image-5.png';
+import image6 from '../img/image-6.png';
 
 const GrowUP = ({ taskCount }) => {
   const [backgroundImage, setBackgroundImage] = useState(image1);
@@ -78,7 +81,7 @@ const GrowUP = ({ taskCount }) => {
                 />
                 花畑
               </label>
-              <label>
+              {/* <label>
                 <input
                   type="radio"
                   name="background"
@@ -87,6 +90,36 @@ const GrowUP = ({ taskCount }) => {
                   onChange={handleBackgroundChange}
                 />
                 部屋
+              </label> */}
+              <label>
+                <input
+                  type="radio"
+                  name="background"
+                  value={image4}
+                  checked={backgroundImage === image4}
+                  onChange={handleBackgroundChange}
+                />
+                桜
+              </label>
+              <label>
+                <input
+                  type="radio"
+                  name="background"
+                  value={image5}
+                  checked={backgroundImage === image5}
+                  onChange={handleBackgroundChange}
+                />
+                花火
+              </label>
+              <label>
+                <input
+                  type="radio"
+                  name="background"
+                  value={image6}
+                  checked={backgroundImage === image6}
+                  onChange={handleBackgroundChange}
+                />
+                公園
               </label>
             </div>
           </div>
