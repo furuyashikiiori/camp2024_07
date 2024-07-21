@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Calendar.css";
 
 const Calendar = ({ todos }) => {
+  const [currentMonth, setCurrentMonth] = useState(new Date());
+
   if (!todos) {
     return <div>Loading...</div>;
   }
@@ -27,15 +29,28 @@ const Calendar = ({ todos }) => {
   // カレンダーの日付を描画
   const renderDays = () => {
     const days = [];
-    const today = new Date();
-    const lastDay = new Date(
-      today.getFullYear(),
-      today.getMonth() + 1,
+    const firstDayOfMonth = new Date(
+      currentMonth.getFullYear(),
+      currentMonth.getMonth(),
+      1
+    );
+    const lastDayOfMonth = new Date(
+      currentMonth.getFullYear(),
+      currentMonth.getMonth() + 1,
       0
     ).getDate(); // 今月の最後の日
 
-    for (let i = 1; i <= lastDay; i++) {
-      const date = new Date(today.getFullYear(), today.getMonth(), i);
+    // 週の始まりまで空白の日付を追加
+    for (let i = 0; i < firstDayOfMonth.getDay(); i++) {
+      days.push(<div key={`empty-${i}`} className="day empty"></div>);
+    }
+
+    for (let i = 1; i <= lastDayOfMonth; i++) {
+      const date = new Date(
+        currentMonth.getFullYear(),
+        currentMonth.getMonth(),
+        i
+      );
       days.push(
         <div key={i} className={`day ${getDayClass(date)}`}>
           {i}
@@ -46,17 +61,44 @@ const Calendar = ({ todos }) => {
     return days;
   };
 
+  // 前月に移動
+  const goToPreviousMonth = () => {
+    setCurrentMonth(
+      new Date(currentMonth.getFullYear(), currentMonth.getMonth() - 1, 1)
+    );
+  };
+
+  // 次月に移動
+  const goToNextMonth = () => {
+    setCurrentMonth(
+      new Date(currentMonth.getFullYear(), currentMonth.getMonth() + 1, 1)
+    );
+  };
+
   return (
     <div>
+      <div className="calendar-controls">
+        <button onClick={goToPreviousMonth} className="nav-button">
+          Previous
+        </button>
+        <h2 className="month-year">
+          {currentMonth.toLocaleString("default", { month: "long" })}{" "}
+          {currentMonth.getFullYear()}
+        </h2>
+        <button onClick={goToNextMonth} className="nav-button">
+          Next
+        </button>
+      </div>
       <div className="calendar">
         {renderDays()}
-        <p className="calender-less">Less</p>
-        <div class="rectangle1"></div>
-        <div class="rectangle2"></div>
-        <div class="rectangle3"></div>
-        <p className="calender-more">More</p>
+        <div className="calendar-legend">
+          <p className="calendar-less">Less</p>
+          <div className="rectangle1"></div>
+          <div className="rectangle2"></div>
+          <div className="rectangle3"></div>
+          <p className="calendar-more">More</p>
+        </div>
       </div>
-
       <button
         className="Reload_button"
         onClick={() => window.location.reload()}
