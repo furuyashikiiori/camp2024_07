@@ -5,30 +5,51 @@
   margin-bottom: 20px;
 }
 
-.nav-button {
+.nav-button-back {
   background-color: rgb(167, 203, 243);
   border: none;
-  border-radius: 100px;
+  border-radius: 5px;
   padding: 10px 20px;
   cursor: pointer;
   transition: background-color 0.3s;
+  margin-left: 35%;
+  margin-right: 0px;
+  margin-top: 20px;
+}
+.nav-button-next {
+  background-color: rgb(167, 203, 243);
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-right: 35%;
+  margin-top: 20px;
 }
 
-.nav-button:hover {
+.nav-button-back:hover {
+  background-color: rgb(98, 162, 235);
+}
+.nav-button-next:hover {
   background-color: rgb(98, 162, 235);
 }
 
 .month-year {
   margin: 0;
   font-size: 1.5em;
+  position: absolute;
+  margin-left: 47%;
+  margin-top: 20px;
 }
 
 .calendar {
   display: flex;
   flex-wrap: wrap;
   margin: 50px;
-  margin-top: 100px;
-  margin-bottom: 100px;
+  margin-top: 50px;
+  margin-bottom: 10px;
+  width: 90%;
+  height: 350px;
 }
 
 .day {
@@ -79,7 +100,8 @@
 .calendar-legend {
   display: flex;
   align-items: center;
-  margin-top: 20px;
+  margin-top: 5px;
+  margin-left: 60%;
 }
 
 .calendar-less,
