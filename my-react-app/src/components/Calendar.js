@@ -78,26 +78,24 @@ const Calendar = ({ todos }) => {
   return (
     <div>
       <div className="calendar-controls">
-        <button onClick={goToPreviousMonth} className="nav-button">
-          Previous
+        <button onClick={goToPreviousMonth} className="nav-button-back">
+          ◀︎ Previous
         </button>
         <h2 className="month-year">
           {currentMonth.toLocaleString("default", { month: "long" })}{" "}
           {currentMonth.getFullYear()}
         </h2>
-        <button onClick={goToNextMonth} className="nav-button">
-          Next
+        <button onClick={goToNextMonth} className="nav-button-next">
+          Next ▶︎
         </button>
       </div>
-      <div className="calendar">
-        {renderDays()}
-        <div className="calendar-legend">
-          <p className="calendar-less">Less</p>
-          <div className="rectangle1"></div>
-          <div className="rectangle2"></div>
-          <div className="rectangle3"></div>
-          <p className="calendar-more">More</p>
-        </div>
+      <div className="calendar">{renderDays()}</div>
+      <div className="calendar-legend">
+        <p className="calendar-less">Less</p>
+        <div className="rectangle1"></div>
+        <div className="rectangle2"></div>
+        <div className="rectangle3"></div>
+        <p className="calendar-more">More</p>
       </div>
       <button
         className="Reload_button"
