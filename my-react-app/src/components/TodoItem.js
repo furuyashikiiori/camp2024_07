@@ -2,7 +2,11 @@ import React, { useState } from "react";
 
 const TodoItem = ({ todo, toggleComplete, deleteTodo, editTodo }) => {
   const [isEditing, setIsEditing] = useState(false);
-  const [newTask, setNewTask] = useState({ name: todo.name, due_date: todo.due_date, category: todo.category });
+  const [newTask, setNewTask] = useState({
+    name: todo.name,
+    due_date: todo.due_date,
+    category: todo.category,
+  });
 
   const handleEdit = () => {
     editTodo(todo.id, { ...todo, ...newTask });
@@ -29,12 +33,16 @@ const TodoItem = ({ todo, toggleComplete, deleteTodo, editTodo }) => {
           />
           <input
             type="date"
-            value={new Date(newTask.due_date).toISOString().split('T')[0]}
-            onChange={(e) => setNewTask({ ...newTask, due_date: e.target.value })}
+            value={new Date(newTask.due_date).toISOString().split("T")[0]}
+            onChange={(e) =>
+              setNewTask({ ...newTask, due_date: e.target.value })
+            }
           />
           <select
             value={newTask.category}
-            onChange={(e) => setNewTask({ ...newTask, category: e.target.value })}
+            onChange={(e) =>
+              setNewTask({ ...newTask, category: e.target.value })
+            }
           >
             <option value="Work">Work</option>
             <option value="Personal">Personal</option>
@@ -52,7 +60,9 @@ const TodoItem = ({ todo, toggleComplete, deleteTodo, editTodo }) => {
           <button onClick={() => setIsEditing(true)}>Edit</button>
         </>
       )}
-      <button onClick={() => deleteTodo(todo.id)}>Delete</button>
+      <button className="Delete-button" onClick={() => deleteTodo(todo.id)}>
+        Delete
+      </button>
     </div>
   );
 };

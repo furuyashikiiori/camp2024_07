@@ -104,3 +104,7 @@ h1 {
   border-radius: 4px;
   cursor: pointer;
 }
+
+.Delete-button {
+  color: red;
+}
