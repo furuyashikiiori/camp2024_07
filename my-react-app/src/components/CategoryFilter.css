@@ -1,0 +1,10 @@
+.category-filter button {
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+  }
+  
+  .category-filter .selected {
+    border: 2px solid rgb(75, 222, 255);
+  }
+  
