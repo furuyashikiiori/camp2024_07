@@ -1,3 +1,28 @@
+.calendar-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.nav-button {
+  background-color: rgb(167, 203, 243);
+  border: none;
+  border-radius: 100px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.nav-button:hover {
+  background-color: rgb(98, 162, 235);
+}
+
+.month-year {
+  margin: 0;
+  font-size: 1.5em;
+}
+
 .calendar {
   display: flex;
   flex-wrap: wrap;
@@ -13,6 +38,12 @@
   padding: 10px;
   position: relative;
   cursor: pointer;
+  text-align: center;
+}
+
+.day.empty {
+  background-color: #f9f9f9;
+  cursor: default;
 }
 
 .day.light-blue {
@@ -38,44 +69,42 @@
   box-sizing: border-box;
   text-decoration: none;
   margin: 20px auto;
-  margin-left: 40%;
+  display: block;
 }
 
 .Reload_button:hover {
   background-color: rgb(98, 162, 235);
 }
 
-.calender-less {
-  margin-left: 100px;
-  margin-right: 5px;
-  margin-top: 10px;
+.calendar-legend {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
 }
 
-.calender-more {
-  margin-left: 5px;
-  margin-top: 10px;
+.calendar-less,
+.calendar-more {
+  margin: 0 10px;
 }
-.rectangle1 {
-  width: 35px;
-  height: 35px;
-  border: none;
-  border-radius: 10px;
-  background-color: lightblue;
-  margin: 2px;
-}
-.rectangle2 {
-  width: 35px;
-  height: 35px;
-  border: none;
-  border-radius: 10px;
-  background-color: blue;
-  margin: 2px;
-}
+
+.rectangle1,
+.rectangle2,
 .rectangle3 {
   width: 35px;
   height: 35px;
   border: none;
   border-radius: 10px;
+  margin: 0 2px;
+}
+
+.rectangle1 {
+  background-color: lightblue;
+}
+
+.rectangle2 {
+  background-color: blue;
+}
+
+.rectangle3 {
   background-color: darkblue;
-  margin: 2px;
 }
